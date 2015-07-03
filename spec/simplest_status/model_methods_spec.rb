@@ -9,15 +9,19 @@ RSpec.describe SimplestStatus::ModelMethods do
         self.validation_input = options.merge(:field => field)
       end
 
-      def statuses
-        SimplestStatus::StatusCollection[:boom, 0, :shaka, 1, :laka, 2] 
+      def all_statuses
+        SimplestStatus::StatusCollection[:boom, 0, :shaka, 1, :laka, 2]
+      end
+
+      def status_column_name
+        :status
       end
     end
 
     include SimplestStatus::ModelMethods
 
     def status
-      self.class.statuses[super]
+      self.class.all_statuses[super]
     end
   end
 
@@ -53,7 +57,7 @@ RSpec.describe SimplestStatus::ModelMethods do
       expect(MockModel.new(:shaka).status_label).to eq 'Shaka'
       expect(MockModel.new(:laka).status_label).to eq 'Laka'
     end
-    
+
     it "sets up the correct model validations" do
       MockModel.validation_input.tap do |validation|
         expect(validation[:field]).to eq :status
