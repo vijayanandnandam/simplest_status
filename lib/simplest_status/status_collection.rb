@@ -19,7 +19,7 @@ module SimplestStatus
       end
     end
 
-    def add(status, value = self.size)
+    def add(status, value = self.size + 1)
       self.merge!(status => value)
     end
 

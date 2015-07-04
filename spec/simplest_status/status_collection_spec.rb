@@ -17,7 +17,7 @@ RSpec.describe SimplestStatus::StatusCollection do
 
   describe "#add" do
     it "returns the collection with the added record" do
-      expect(subject.add(:testing)).to eq(:testing => 0)
+      expect(subject.add(:testing)).to eq(:testing => 1)
     end
 
     context "when given an explicit value" do

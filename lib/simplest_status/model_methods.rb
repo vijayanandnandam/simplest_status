@@ -32,7 +32,7 @@ module SimplestStatus
 
       def define_instance_methods_for(status_info)
         define_predicate(status_info)
-        define_status_setter(status_info)
+        #define_status_setter(status_info)
       end
 
       def define_predicate(status_info)

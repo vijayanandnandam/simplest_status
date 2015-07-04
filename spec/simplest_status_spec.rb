@@ -15,14 +15,14 @@ RSpec.describe SimplestStatus do
 
   context "when extended by a model" do
     it "adds the .statuses method" do
-      expect(EmptyModel.statuses(:boom, :shaka, :laka)).to eq(:boom => 0, :shaka => 1, :laka => 2)
+      expect(EmptyModel.statuses(:boom, :shaka, :laka)).to eq(:boom => 1, :shaka => 2, :laka => 3)
     end
   end
 
   describe ".statuses" do
     it "adds the .all_statuses method" do
       EmptyModel.statuses(:boom, :shaka, :laka)
-      expect(EmptyModel.all_statuses).to eq(:boom => 0, :shaka => 1, :laka => 2)
+      expect(EmptyModel.all_statuses).to eq(:boom => 1, :shaka => 2, :laka => 3)
     end
 
     it "adds the .status_column_name method" do

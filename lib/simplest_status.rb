@@ -8,6 +8,7 @@ module SimplestStatus
     if status_list.last.is_a?(Hash)
       options = status_list.pop
       @status_column_name = options[:column_name]
+      @start_index = options[:index_start]
     end
 
     @status_column_name ||= :status
